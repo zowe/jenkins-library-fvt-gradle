@@ -91,7 +91,7 @@ node('ibm-jenkins-slave-nvm') {
     name          : 'Unit',
     junit         : [
       allowEmptyResults : true,
-      testResults       : '**/test-results/**/*.xml'
+      testResults       : 'build/test-results/test/*.xml'
     ],
     htmlReports   : [
       [dir: "build/reports/tests/test", files: "index.html", name: "Report: Unit Test"],
