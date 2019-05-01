@@ -89,10 +89,7 @@ node('ibm-jenkins-slave-nvm') {
 
   pipeline.test(
     name          : 'Unit',
-    junit         : [
-      allowEmptyResults : true,
-      testResults       : 'build/test-results/test/*.xml'
-    ],
+    junit         : '**/test-results/test/*.xml',
     htmlReports   : [
       [dir: "build/reports/tests/test", files: "index.html", name: "Report: Unit Test"],
     ],
