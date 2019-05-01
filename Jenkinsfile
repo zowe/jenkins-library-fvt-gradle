@@ -101,13 +101,8 @@ node('ibm-jenkins-slave-nvm') {
   // we don't have sonarscan defined for this test project
   // pipeline.sonarScan()
 
-  // how we packaging jars/zips
-  pipeline.packaging(
-      name: 'jenkins-library-fvt-gradle',
-      operation: {
-          sh './gradlew jar'
-      }
-  )
+  // default packaging command is `./gradlew jar`
+  pipeline.packaging(name: 'jenkins-library-fvt-gradle')
 
   // define we need publish stage
   pipeline.publish(
