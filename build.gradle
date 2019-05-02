@@ -9,6 +9,8 @@
 plugins {
     // Apply the java-library plugin to add support for Java Library
     id 'java-library'
+    // this is required to do a release
+    id 'net.researchgate.release' version '2.6.0'
 }
 
 dependencies {
@@ -29,11 +31,25 @@ repositories {
     jcenter()
 }
 
-version = '0.1.0'
-
 jar {
     manifest {
         attributes('Implementation-Title': project.name,
                    'Implementation-Version': project.version)
+    }
+}
+
+release {
+    tagTemplate = 'v${version}'
+    versionPropertyFile = 'gradle.properties'
+    scmAdapters = [
+        net.researchgate.release.GitAdapter,
+    ]
+
+    git {
+        requireBranch = 'master'
+        pushToRemote = 'origin'
+        pushToBranchPrefix = ''
+        commitVersionFileOnly = false
+        signTag = false
     }
 }
