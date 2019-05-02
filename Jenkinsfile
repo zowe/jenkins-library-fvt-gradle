@@ -103,6 +103,7 @@ node('ibm-jenkins-slave-nvm') {
 
   // define we need publish stage
   pipeline.publish(
+    allowPublishPreReleaseFromFormalReleaseBranch: true,
     artifacts: [
       'build/libs/jenkins-library-fvt-gradle-*.jar'
     ]
