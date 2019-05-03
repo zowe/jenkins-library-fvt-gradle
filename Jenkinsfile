@@ -73,7 +73,6 @@ node('ibm-jenkins-slave-nvm') {
   pipeline.admins.add("jackjia")
 
   pipeline.setup(
-    packageName: 'org.zowe.jenkins-library-test.gradle',
     github: [
       email                      : 'zowe.robot@gmail.com',
       usernamePasswordCredential : 'zowe-robot-github',
