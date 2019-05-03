@@ -110,10 +110,7 @@ node('ibm-jenkins-slave-nvm') {
   )
 
   // define we need release stage
-  pipeline.release(
-    artifactoryReleaseUsernameVar: 'deploy.username',
-    artifactoryReleasePasswordVar: 'deploy.password'
-  )
+  pipeline.release()
 
   pipeline.end()
 }
