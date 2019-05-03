@@ -6,14 +6,14 @@
  * user guide available at https://docs.gradle.org/4.10.2/userguide/java_library_plugin.html
  */
 
-group 'org.zowe.jenkins-library-test.gradle'
-
 plugins {
     // Apply the java-library plugin to add support for Java Library
     id 'java-library'
     // this is required to do a release
     id 'net.researchgate.release' version '2.6.0'
 }
+
+group 'org.zowe.jenkins-library-test.gradle'
 
 dependencies {
     // This dependency is exported to consumers, that is to say found on their compile classpath.
