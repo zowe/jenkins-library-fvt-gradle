@@ -122,8 +122,8 @@ node('ibm-jenkins-slave-nvm') {
                    "    }\n" +
                    " ]\n" +
                    "}"
-        
-      def buildInfo = server.upload(spec: spec)
+      def buildInfo = Artifactory.newBuildInfo()
+      server.upload spec: spec, buildInfo: buildInfo
 
       rtGradle.deployer.deployArtifacts buildInfo
       server.publishBuildInfo buildInfo
