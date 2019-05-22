@@ -1,0 +1,14 @@
+I, Jack (T.) Jia hereby sign-off-by all of my past commits to this repo subject to the Developer Certificate of Origin (DCO), Version 1.1. In the past I have used emails: jack-tiefeng.jia@ibm.com
+
+3d6590c7a3bbb80b964e5bda7ec57fa3bb4df053 no param required
+cb4b3ad2a69eced139796eeb0d894f79fc6c6ed9 add some extra testing properties
+3f7eb38fa34f3fe966ccb18c410ff397c632ae8a allowPublishPreReleaseFromFormalReleaseBranch
+a569ba9ef022b1d166f7b5920f72358660e26495 enable sign off
+ba824bc616640c506996bf50fdf4accf1d0676a7 [Gradle Release Plugin] - new version commit:  'v0.1.1'.
+bb35f07a38540dd97d85afc20805bf3df5961a03 define gradle relesae
+9a7f41bcb842b3c121fda01eae2c5990419c2ee8 not a map?
+90afcd3f19e0919dee53b84dcc6046a09481923b ** is not support?
+cc2809f9ab45806eb9411854ebc9769188125156 update definition of packaging
+06440816b771fa809c7bfa22ecc1175fda9c29a9 define a sample pipeline
+8de5f618bb425bd908348cdc0ebfea8b6162a621 init gradle project
+70a9e4504ee9f5e238126dcce445fdd468c9ca04 Initial commit
