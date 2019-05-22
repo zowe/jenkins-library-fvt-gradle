@@ -103,9 +103,34 @@ node('ibm-jenkins-slave-nvm') {
   // define we need publish stage
   pipeline.publish(
     allowPublishPreReleaseFromFormalReleaseBranch: true,
-    artifacts: [
-      'build/libs/jenkins-library-fvt-gradle-*.jar'
-    ]
+    operation: {
+      def server = Artifactory.newServer(
+          'url'              : lib.Constants.DEFAULT_ARTIFACTORY_URL,
+          'credentialsId'    : lib.Constants.DEFAULT_ARTIFACTORY_ROBOT_CREDENTIAL
+      )
+      rtGradle = Artifactory.newGradleBuild()
+        // rtGradle.tool = GRADLE_TOOL // Tool name from Jenkins configuration
+      rtGradle.deployer repo: 'libs-release-local', server: server
+      rtGradle.resolver repo: 'libs-release', server: server
+      rtGradle.deployer.deployArtifacts = false // Disable artifacts deployment during Gradle run
+
+      def spec = "{\n" +
+                   "  \"files\": [\n" +
+                   "    {\n" +
+                   "      \"pattern\": \"'build/libs/jenkins-library-fvt-gradle-*.jar'\",\n" +
+                   "      \"target\": \"libs-snapshot-local/org/zowe/jenkins-library-test/gradle/0.1.28-SNAPSHOT/\"\n" +
+                   "    }\n" +
+                   " ]\n" +
+                   "}"
+        
+      def buildInfo = server.upload(spec: spec)
+
+      rtGradle.deployer.deployArtifacts buildInfo
+      server.publishBuildInfo buildInfo
+    }
+    // artifacts: [
+    //   'build/libs/jenkins-library-fvt-gradle-*.jar'
+    // ]
   )
 
   // define we need release stage
