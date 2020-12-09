@@ -41,7 +41,7 @@ if (params.FETCH_PARAMETER_ONLY) {
     error "Prematurely exit after fetching parameters."
 }
 
-node('ibm-jenkins-slave-nvm') {
+node('zowe-jenkins-agent') {
   /**
    * This section is only required for running integration test.
    *
